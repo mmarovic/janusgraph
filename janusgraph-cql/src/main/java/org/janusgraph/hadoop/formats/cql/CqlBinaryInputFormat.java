@@ -16,7 +16,6 @@ package org.janusgraph.hadoop.formats.cql;
 
 import org.apache.cassandra.hadoop.ConfigHelper;
 import org.apache.cassandra.hadoop.cql3.CqlConfigHelper;
-import org.apache.cassandra.hadoop.cql3.CqlInputFormat;
 import org.apache.cassandra.hadoop.cql3.CqlRecordReader;
 import org.apache.cassandra.thrift.SlicePredicate;
 import org.apache.cassandra.thrift.SliceRange;
@@ -46,7 +45,7 @@ public class CqlBinaryInputFormat extends AbstractBinaryInputFormat {
     private static final String INPUT_WIDEROWS_CONFIG = "cassandra.input.widerows";
     private static final String RANGE_BATCH_SIZE_CONFIG = "cassandra.range.batch.size";
 
-    private final CqlInputFormat  cqlInputFormat = new CqlInputFormat();
+    private final FixedHadoopCqlInputFormat  cqlInputFormat = new FixedHadoopCqlInputFormat();
 
     @Override
     public List<InputSplit> getSplits(JobContext jobContext) throws IOException {
